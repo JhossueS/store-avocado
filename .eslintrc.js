@@ -1,26 +1,35 @@
 const RULES = {
-  OFF: "off",
-  WARN: "warn",
-  ERROR: "error",
+  OFF: 'off',
+  WARN: 'warn',
+  ERROR: 'error',
 };
 
 module.exports = {
   env: {
-    browser: true,
     es2021: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended"],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:react/jsx-runtime',
+  ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 12,
-    sourceType: "module",
+    sourceType: 'module',
   },
-  plugins: ["react"],
+  plugins: [
+    'react',
+  ],
   rules: {
-    "no-undef": RULES.OFF,
-    "react/prop-types": RULES.OFF,
-    "react/react-in-jsx-scope": RULES.OFF,
+    quotes: [2, 'single'],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'jsx-quotes': ['error', 'prefer-single'],
+    'no-undef': RULES.OFF,
+    'no-console': RULES.OFF,
+    'react/prop-types': RULES.OFF,
+    'arrow-body-style': RULES.OFF,
   },
 };

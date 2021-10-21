@@ -1,30 +1,30 @@
-const path = require("path");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].[contenthash].js",
-    publicPath: "auto",
+    filename: '[name].[contenthash].js',
+    publicPath: 'auto',
   },
-  mode: "development",
+  mode: 'development',
   resolve: {
-    extensions: [".js", ".jsx"],
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
       {
         test: /\.(jsx|js)$/,
-        include: path.resolve(__dirname, "src"),
+        include: path.resolve(__dirname, 'src'),
         exclude: /node_modules/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
               presets: [
                 [
-                  "@babel/preset-env",
+                  '@babel/preset-env',
                   {
                     targets: {
                       esmodules: true,
@@ -32,9 +32,9 @@ module.exports = {
                   },
                 ],
                 [
-                  "@babel/preset-react",
+                  '@babel/preset-react',
                   {
-                    runtime: "automatic",
+                    runtime: 'automatic',
                   },
                 ],
               ],
@@ -45,27 +45,35 @@ module.exports = {
       {
         test: /\.html$/,
         use: {
-          loader: "html-loader",
+          loader: 'html-loader',
         },
       },
       {
         test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader"
+          'css-loader',
         ],
-      }
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      title: "Template REACTJS",
+      title: 'Template REACTJS',
       template: './public/index.html',
       filename: './index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "assets/css/[name].[contenthash].css"
-    })
+      filename: 'assets/css/[name].[contenthash].css',
+    }),
   ],
   devServer: {
     open: true,

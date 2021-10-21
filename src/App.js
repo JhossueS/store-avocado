@@ -1,12 +1,18 @@
+import { Container, CssBaseline } from '@mui/material';
 import Header from './components/Header';
-import './assets/css.css';
 
 const App = () => {
   return (
-    <h1>
+    <>
+      <CssBaseline />
       <Header />
-      Hello World!!!!!!
-    </h1>
+      <Container maxWidth='md'>
+        <div>
+          Hey
+        </div>
+
+      </Container>
+    </>
   );
 };
 
