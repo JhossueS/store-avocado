@@ -5,6 +5,7 @@ import {
 import { useTheme } from '@mui/material/styles';
 import IconMenu from '@mui/icons-material/Menu';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import Link from '../Link';
 import papperBag from '../../assets/images/paper-bag.png';
 
 const BurgerMenu = () => {
@@ -25,9 +26,20 @@ const BurgerMenu = () => {
   return (
     matches ? (
       <>
-        <Button color='secondary' variant='outlined' sx={{ marginRight: '18px' }} size='large'>Iniciar Secion</Button>
-        <img src={papperBag} alt='papperBag' width={40} />
-        <Typography> Canasta (0) </Typography>
+        <Button
+          color='secondary'
+          variant='outlined'
+          sx={{ marginRight: '18px' }}
+          size='small'
+        >
+          <Link to='/sign-up' flex>
+            Iniciar Secion
+          </Link>
+        </Button>
+        <Link to='/checkout' flex>
+          <img src={papperBag} alt='papperBag' width={40} />
+          <Typography> Canasta (0) </Typography>
+        </Link>
       </>
     ) : (
       <>
@@ -53,13 +65,18 @@ const BurgerMenu = () => {
           }}
         >
           <MenuItem onClick={handleClose}>
-            Logout
+            <Link to='/sign-in' flex>
+              Logout
+            </Link>
           </MenuItem>
           <MenuItem>
-            <ListItemIcon>
-              <AddShoppingCartIcon fontSize='small' />
-            </ListItemIcon>
-            <ListItemText>Canasta (0)</ListItemText>
+            <Link to='/checkout' flex>
+              <ListItemIcon>
+                <AddShoppingCartIcon fontSize='small' />
+                <ListItemText primary='canasta (0)' />
+              </ListItemIcon>
+            </Link>
+
           </MenuItem>
         </Menu>
       </>

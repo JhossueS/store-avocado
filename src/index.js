@@ -1,12 +1,17 @@
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from '@mui/material/styles';
-import App from './App';
+import { createBrowserHistory } from 'history';
+import { Router } from 'react-router';
 import theme from './utils/Theme';
+import AppRouter from './routes/Router';
 
 const ROOT = document.getElementById('root');
+const history = createBrowserHistory();
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App />
+    <Router history={history}>
+      <AppRouter />
+    </Router>
   </ThemeProvider>, ROOT,
 );

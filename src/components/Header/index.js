@@ -1,16 +1,19 @@
 import {
   Toolbar, AppBar, Container, Box,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu';
 import logo from '../../assets/images/fruit.png';
 
 const Header = () => {
   return (
-    <AppBar position='static'>
+    <AppBar position='static' sx={{ marginBottom: '18px' }}>
       <Toolbar variant='dense'>
         <Container maxWidth='md'>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <img src={logo} alt='logo' width={48} />
+            <Link to='/'>
+              <img src={logo} alt='logo' width={48} />
+            </Link>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
               <BurgerMenu />
             </Box>

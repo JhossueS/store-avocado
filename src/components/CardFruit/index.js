@@ -2,6 +2,8 @@ import {
   Card, CardActionArea, CardMedia, CardContent, Typography,
 } from '@mui/material';
 import logo from '../../assets/images/maluma.jpg';
+import ButtonBuy from '../ButtonBuy';
+import Link from '../Link';
 
 const CardFruit = () => {
   return (
@@ -18,20 +20,23 @@ const CardFruit = () => {
       }}
     >
       <CardActionArea>
-        <CardMedia
-          component='img'
-          image={logo}
-          alt='avocado'
-        />
-        <CardContent>
-          <Typography variant='h5' component='div'>
-            Maluma Has Avocado
-          </Typography>
-          <typography variant='body2'>
-            1.15$
-          </typography>
-        </CardContent>
+        <Link to='/fruit'>
+          <CardMedia
+            component='img'
+            image={logo}
+            alt='avocado'
+          />
+        </Link>
       </CardActionArea>
+      <CardContent>
+        <Typography variant='h5' component='h3'>
+          Maluma Has Avocado
+        </Typography>
+        <Typography variant='body2' component='p'>
+          1.15$
+        </Typography>
+        <ButtonBuy />
+      </CardContent>
     </Card>
   );
 };
