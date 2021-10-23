@@ -92,7 +92,7 @@ export const addToCart = (id) => async (dispatch, getState) => {
     },
     totalPrice,
   };
-  console.log(cart);
+
   return dispatch({
     type: 'ADD_TO_CART',
     payload,
@@ -101,14 +101,14 @@ export const addToCart = (id) => async (dispatch, getState) => {
 
 export const removeItemCart = (id) => async (dispatch, getState) => {
   const { cart } = await getState();
-  // find id product
 
   const { products, totalProduct, totalPrice } = { ...cart };
 
+  // find remove quantity item delete
   const removeTotalProduct = totalProduct - products[id].quantity;
-
+  // get price procuts
   const productTotalPrice = products[id].quantity * products[id].price;
-
+  // remove price products of cart
   const removeTotalPrice = totalPrice - productTotalPrice;
 
   const payload = {
@@ -117,7 +117,7 @@ export const removeItemCart = (id) => async (dispatch, getState) => {
     totalProduct: removeTotalProduct,
     totalPrice: removeTotalPrice,
   };
-  console.log(payload);
+
   dispatch({
     type: 'REMOVE_ITEM_CART',
     payload,

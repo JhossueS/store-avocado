@@ -70,13 +70,12 @@ const BurgerMenu = () => {
               {isLogged}
             </Link>
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={handleClose}>
             <Link to='/checkout' flex>
               <ListItemIcon>
                 <Cart sm />
               </ListItemIcon>
             </Link>
-
           </MenuItem>
         </Menu>
       </>
