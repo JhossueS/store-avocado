@@ -33,5 +33,6 @@ module.exports = {
     'arrow-body-style': RULES.OFF,
     'no-param-reassign': RULES.OFF,
     'import/prefer-default-export': RULES.OFF,
+    'react/jsx-props-no-spreading': RULES.OFF,
   },
 };

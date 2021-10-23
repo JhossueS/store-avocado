@@ -2,10 +2,10 @@ import {
   Box, Paper, Typography,
 } from '@mui/material';
 
-import ButtonBuy from '../ButtonBuy';
+import ButtonAddCart from '../ButtonAddCart';
 
 const CardFruitView = ({
-  name, img, price, sku,
+  name, img, price, sku, id,
 }) => {
   return (
     <Box>
@@ -43,7 +43,7 @@ const CardFruitView = ({
             {' '}
             {sku}
           </Paper>
-          <ButtonBuy />
+          <ButtonAddCart id={id} />
         </Box>
       </Box>
     </Box>

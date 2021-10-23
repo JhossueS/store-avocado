@@ -15,6 +15,7 @@ const InfoFruit = ({ id }) => {
         name={product.name}
         sku={product.sku}
         price={product.price}
+        id={product.id}
       />
       <AttributesFruit attributes={product.attributes} />
     </>

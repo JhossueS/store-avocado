@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import {
-  MenuItem, Menu, Button, IconButton, useMediaQuery, Typography, ListItemIcon, ListItemText,
+  MenuItem, Menu, Button, IconButton, useMediaQuery, ListItemIcon,
 } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 import IconMenu from '@mui/icons-material/Menu';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Link from '../Link';
-import papperBag from '../../assets/images/paper-bag.png';
+import useLogged from '../../hooks/useLogged';
+import Cart from '../Cart';
 
 const BurgerMenu = () => {
   const theme = useTheme();
@@ -23,6 +23,8 @@ const BurgerMenu = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const userState = useLogged();
+  const isLogged = userState.user.length === 0 ? 'Sign-up' : 'Logout';
   return (
     matches ? (
       <>
@@ -33,12 +35,11 @@ const BurgerMenu = () => {
           size='small'
         >
           <Link to='/sign-up' flex>
-            Iniciar Secion
+            {isLogged}
           </Link>
         </Button>
         <Link to='/checkout' flex>
-          <img src={papperBag} alt='papperBag' width={40} />
-          <Typography> Canasta (0) </Typography>
+          <Cart />
         </Link>
       </>
     ) : (
@@ -66,14 +67,13 @@ const BurgerMenu = () => {
         >
           <MenuItem onClick={handleClose}>
             <Link to='/sign-in' flex>
-              Logout
+              {isLogged}
             </Link>
           </MenuItem>
           <MenuItem>
             <Link to='/checkout' flex>
               <ListItemIcon>
-                <AddShoppingCartIcon fontSize='small' />
-                <ListItemText primary='canasta (0)' />
+                <Cart sm />
               </ListItemIcon>
             </Link>
 

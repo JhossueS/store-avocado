@@ -1,7 +1,7 @@
 import {
   Card, CardActionArea, CardMedia, CardContent, Typography,
 } from '@mui/material';
-import ButtonBuy from '../ButtonBuy';
+import ButtonAddCart from '../ButtonAddCart';
 import Link from '../Link';
 
 const CardFruit = ({
@@ -36,7 +36,7 @@ const CardFruit = ({
         <Typography variant='body2' component='p'>
           {price}
         </Typography>
-        <ButtonBuy />
+        <ButtonAddCart id={id} />
       </CardContent>
     </Card>
   );

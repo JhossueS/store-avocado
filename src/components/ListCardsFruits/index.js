@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, CircularProgress } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { actionCreators } from '../../state/index';
@@ -11,6 +11,20 @@ const ListCardsFruits = () => {
 
   if (products.length === 0 && loading === false) {
     getAvocados();
+  }
+
+  if (loading) {
+    return (
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        flexWrap: 'wrap',
+        height: '80vh',
+      }}
+      >
+        <CircularProgress sx={{ color: 'red' }} />
+      </Box>
+    );
   }
 
   return (
