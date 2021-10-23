@@ -3,7 +3,7 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import BurgerMenu from '../BurgerMenu';
-import logo from '../../assets/images/fruit.png';
+import logo from '../../assets/images/avocado.png';
 
 const Header = () => {
   return (

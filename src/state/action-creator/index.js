@@ -25,6 +25,13 @@ export const registerUser = (dataForm) => async (dispatch) => {
   try {
     const { data } = await axios.post('https://api-avocado-store.vercel.app/api/auth/register', dataForm);
 
+    if (data.message === 'error') {
+      return dispatch({
+        type: 'REGISTER_USER',
+        payload: {},
+      });
+    }
+
     dispatch({
       type: 'REGISTER_USER',
       payload: data,
@@ -42,6 +49,13 @@ export const loginUser = (dataForm) => async (dispatch) => {
   });
   try {
     const { data } = await axios.post('https://api-avocado-store.vercel.app/api/auth/login', dataForm);
+
+    if (data.message === 'error') {
+      return dispatch({
+        type: 'REGISTER_USER',
+        payload: {},
+      });
+    }
 
     dispatch({
       type: 'REGISTER_USER',
