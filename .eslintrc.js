@@ -31,5 +31,7 @@ module.exports = {
     'no-console': RULES.OFF,
     'react/prop-types': RULES.OFF,
     'arrow-body-style': RULES.OFF,
+    'no-param-reassign': RULES.OFF,
+    'import/prefer-default-export': RULES.OFF,
   },
 };

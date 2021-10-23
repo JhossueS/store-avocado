@@ -1,11 +1,12 @@
 import {
   Card, CardActionArea, CardMedia, CardContent, Typography,
 } from '@mui/material';
-import logo from '../../assets/images/maluma.jpg';
 import ButtonBuy from '../ButtonBuy';
 import Link from '../Link';
 
-const CardFruit = () => {
+const CardFruit = ({
+  img, name, price, id,
+}) => {
   return (
     <Card
       sx={{
@@ -20,20 +21,20 @@ const CardFruit = () => {
       }}
     >
       <CardActionArea>
-        <Link to='/fruit'>
+        <Link to={`/fruit/${id}`}>
           <CardMedia
             component='img'
-            image={logo}
+            image={img}
             alt='avocado'
           />
         </Link>
       </CardActionArea>
       <CardContent>
         <Typography variant='h5' component='h3'>
-          Maluma Has Avocado
+          {name}
         </Typography>
         <Typography variant='body2' component='p'>
-          1.15$
+          {price}
         </Typography>
         <ButtonBuy />
       </CardContent>
